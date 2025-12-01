@@ -1,0 +1,12 @@
+C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include/core_cm3.h:1511:22:__NVIC_EnableIRQ	16	static
+../Inc/usart.c:10:6:usartInit	32	static
+../Inc/usart.c:35:10:usartAvailable	16	static
+../Inc/usart.c:39:6:usartWriteByte	32	static
+../Inc/usart.c:52:6:usartWriteLine	32	static
+../Inc/usart.c:67:6:usartReadByte	24	static
+../Inc/usart.c:78:6:usartReadBytes	40	static
+../Inc/usart.c:96:6:echo	24	static
+../Inc/usart.c:105:10:usartDiv	16	static
+../Inc/usart.c:110:28:USART1_IRQHandler	8	static
+../Inc/usart.c:115:28:USART2_IRQHandler	8	static
+../Inc/usart.c:120:6:USART_IRQHandler_Generic	32	static

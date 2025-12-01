@@ -1,0 +1,2 @@
+../Inc/pwm.c:11:6:pwmInit	24	static
+../Inc/pwm.c:25:6:pwmWrite	40	static
