@@ -2,5 +2,6 @@
 ../Inc/gpio.c:21:15:portToGPIO	16	static
 ../Inc/gpio.c:36:9:gpioPortIndex	16	static
 ../Inc/gpio.c:52:6:pinMode	32	static
-../Inc/gpio.c:73:6:digitalWrite	24	static
-../Inc/gpio.c:84:9:digitalRead	24	static
+../Inc/gpio.c:75:6:pinModeMulti	48	static
+../Inc/gpio.c:81:6:digitalWrite	24	static
+../Inc/gpio.c:92:9:digitalRead	24	static
