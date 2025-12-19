@@ -1,0 +1,2 @@
+D:/Path/Glove/app/firmware/modules/myhal/utilities.c:4:6:assert	16	static
+D:/Path/Glove/app/firmware/modules/myhal/utilities.c:10:6:assertFailed	16	static,ignoring_inline_asm

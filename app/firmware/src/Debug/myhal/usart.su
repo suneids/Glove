@@ -1,0 +1,13 @@
+C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include/core_cm3.h:1511:22:__NVIC_EnableIRQ	16	static
+D:/Path/Glove/app/firmware/modules/myhal/usart.c:9:6:usartInit	56	static
+D:/Path/Glove/app/firmware/modules/myhal/usart.c:31:10:usartAvailable	24	static
+D:/Path/Glove/app/firmware/modules/myhal/usart.c:36:6:usartWriteByte	32	static
+D:/Path/Glove/app/firmware/modules/myhal/usart.c:49:6:usartWriteLine	32	static
+D:/Path/Glove/app/firmware/modules/myhal/usart.c:64:6:usartReadByte	32	static
+D:/Path/Glove/app/firmware/modules/myhal/usart.c:76:6:usartReadBytes	48	static
+D:/Path/Glove/app/firmware/modules/myhal/usart.c:95:6:echo	24	static
+D:/Path/Glove/app/firmware/modules/myhal/usart.c:103:10:usartDiv	16	static
+D:/Path/Glove/app/firmware/modules/myhal/usart.c:107:9:usartIndex	16	static
+D:/Path/Glove/app/firmware/modules/myhal/usart.c:114:28:USART1_IRQHandler	8	static
+D:/Path/Glove/app/firmware/modules/myhal/usart.c:119:28:USART2_IRQHandler	8	static
+D:/Path/Glove/app/firmware/modules/myhal/usart.c:124:6:USART_IRQHandler_Generic	32	static

@@ -1,0 +1,7 @@
+D:/Path/Glove/app/firmware/modules/myhal/gpio.c:3:6:enableGPIOClock	16	static
+D:/Path/Glove/app/firmware/modules/myhal/gpio.c:17:9:gpioPortIndex	16	static
+D:/Path/Glove/app/firmware/modules/myhal/gpio.c:31:6:pinMode	32	static
+D:/Path/Glove/app/firmware/modules/myhal/gpio.c:55:6:pinModeMulti	40	static
+D:/Path/Glove/app/firmware/modules/myhal/gpio.c:61:6:pinToggle	24	static
+D:/Path/Glove/app/firmware/modules/myhal/gpio.c:73:6:digitalWrite	32	static
+D:/Path/Glove/app/firmware/modules/myhal/gpio.c:85:9:digitalRead	24	static

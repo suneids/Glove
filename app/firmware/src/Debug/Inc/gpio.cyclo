@@ -1,7 +1,0 @@
-../Inc/gpio.c:3:6:enableGPIOClock	5
-../Inc/gpio.c:21:15:portToGPIO	5
-../Inc/gpio.c:36:9:gpioPortIndex	5
-../Inc/gpio.c:52:6:pinMode	6
-../Inc/gpio.c:75:6:pinModeMulti	2
-../Inc/gpio.c:81:6:digitalWrite	2
-../Inc/gpio.c:92:9:digitalRead	1
