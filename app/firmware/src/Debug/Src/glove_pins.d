@@ -1,4 +1,4 @@
-Src/main.o: ../Src/main.c \
+Src/glove_pins.o: ../Src/glove_pins.c ../Src/glove_config.h \
  D:/Path/Glove/app/firmware/modules/myhal/myhal.h \
  D:/Path/Glove/app/firmware/modules/myhal/gpio.h \
  D:/Path/Glove/app/firmware/modules/myhal/mcu_config.h \
@@ -16,8 +16,8 @@ Src/main.o: ../Src/main.c \
  D:/Path/Glove/app/firmware/modules/myhal/utilities.h \
  D:/Path/Glove/app/firmware/modules/myhal/dma.h \
  D:/Path/Glove/app/firmware/modules/myhal/adc.h \
- D:/Path/Glove/app/firmware/modules/myhal/soft_usart.h \
- ../Src/glove_config.h
+ D:/Path/Glove/app/firmware/modules/myhal/soft_usart.h
+../Src/glove_config.h:
 D:/Path/Glove/app/firmware/modules/myhal/myhal.h:
 D:/Path/Glove/app/firmware/modules/myhal/gpio.h:
 D:/Path/Glove/app/firmware/modules/myhal/mcu_config.h:
@@ -36,4 +36,3 @@ D:/Path/Glove/app/firmware/modules/myhal/utilities.h:
 D:/Path/Glove/app/firmware/modules/myhal/dma.h:
 D:/Path/Glove/app/firmware/modules/myhal/adc.h:
 D:/Path/Glove/app/firmware/modules/myhal/soft_usart.h:
-../Src/glove_config.h:
