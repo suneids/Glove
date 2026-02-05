@@ -1,0 +1,36 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (13.3.rel1)
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+S_SRCS += \
+D:/Path/Glove/app/firmware/modules/myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/portasm.s 
+
+C_SRCS += \
+D:/Path/Glove/app/firmware/modules/myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/port.c 
+
+OBJS += \
+./myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/port.o \
+./myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/portasm.o 
+
+S_DEPS += \
+./myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/portasm.d 
+
+C_DEPS += \
+./myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/port.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/port.o: D:/Path/Glove/app/firmware/modules/myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/port.c myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/subdir.mk
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I"C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include" -I"C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include" -I"D:/Path/Glove/app/firmware/modules/myhal" -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Werror -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
+myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/portasm.o: D:/Path/Glove/app/firmware/modules/myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/portasm.s myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/subdir.mk
+	arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@" "$<"
+
+clean: clean-myhal-2f-CMSIS-2f-STM32CubeF1-2d-master-2f-Middlewares-2f-Third_Party-2f-FreeRTOS-2f-Source-2f-portable-2f-IAR-2f-ARM_CM3
+
+clean-myhal-2f-CMSIS-2f-STM32CubeF1-2d-master-2f-Middlewares-2f-Third_Party-2f-FreeRTOS-2f-Source-2f-portable-2f-IAR-2f-ARM_CM3:
+	-$(RM) ./myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/port.cyclo ./myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/port.d ./myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/port.o ./myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/port.su ./myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/portasm.d ./myhal/CMSIS/STM32CubeF1-master/Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3/portasm.o
+
+.PHONY: clean-myhal-2f-CMSIS-2f-STM32CubeF1-2d-master-2f-Middlewares-2f-Third_Party-2f-FreeRTOS-2f-Source-2f-portable-2f-IAR-2f-ARM_CM3
+

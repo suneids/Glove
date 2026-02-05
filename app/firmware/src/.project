@@ -28,4 +28,11 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>myhal</name>
+			<type>2</type>
+			<location>D:/Path/Glove/app/firmware/modules/myhal</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -1,0 +1,13 @@
+C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include/core_cm3.h:1511:22:__NVIC_EnableIRQ	16	static
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:30:6:softUartInit	48	static
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:49:13:softUartRxStartHandler	16	static
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:64:13:softUartRxTimHandler	24	static
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:96:20:txSetHigh	4	static
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:101:20:txSetLow	4	static
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:106:13:softUartTxTimHandler	16	static
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:133:13:softUartStartTx	4	static
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:144:6:softUartPutChar	24	static,ignoring_inline_asm
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:159:6:softUartPutString	16	static
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:167:13:softUartTimDispatch	8	static
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:183:10:softUartAvailable	4	static
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:188:6:softUartReadByte	16	static

@@ -1,0 +1,4 @@
+../Src/rgb.c:11:6:RGBInit	40	static
+../Src/rgb.c:21:6:setColor	32	static
+../Src/rgb.c:28:7:getStateColor	24	static
+../Src/rgb.c:45:7:getRainbowColor	24	static

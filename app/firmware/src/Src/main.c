@@ -1,77 +1,83 @@
-#include <myhal.h>
-
+#include "myhal.h"
+// TODO закинуть в библиотеку файл stm32f103xxxxx.h  чтобы не тянуть его зависимостями
+#include "glove_config.h"
+#include "rgb.h"
+#include "button.h"
+#include "activities.h"
 
 int main(void)
 {
-	enableGPIOClock(GPIO_PORT_A);
-	usartInit(USART_1, 9600);
-	RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
-	timerInit(TIM_PORT_2, 7999, 299);
+	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
+	RCC->APB1ENR |= RCC_APB1ENR_I2C1EN;
 
-//	pinMode(GPIO_PORT_A, 0, GPIO_MODE_INPUT, GPIO_CNF_ANALOG, 0);
-//	pinMode(GPIO_PORT_A, 1, GPIO_MODE_INPUT, GPIO_CNF_ANALOG, 0);
-//	pinMode(GPIO_PORT_A, 4, GPIO_MODE_INPUT, GPIO_CNF_ANALOG, 0);
-//	pinMode(GPIO_PORT_A, 5, GPIO_MODE_INPUT, GPIO_CNF_ANALOG, 0);
-//	pinMode(GPIO_PORT_A, 6, GPIO_MODE_INPUT, GPIO_CNF_ANALOG, 0);
-	pinModeMulti(GPIO_PORT_A, (const uint8_t[]){0, 1, 4, 5, 6}, 5, GPIO_MODE_INPUT, GPIO_CNF_ANALOG, 0);
-	//Настройка времени выборки (SMPR)
-	// Все пины ниже 9, поэтому работаем с SMPR2.
-	ADC1->SMPR2 &= ~(0b110 << (ADC_SMPR2_SMP0_Pos));
-	ADC1->SMPR2 |= (0b110 << (ADC_SMPR2_SMP0_Pos));
+	pinModeMulti(ADC_pins, ADC_CHANNELS_COUNT, GPIO_MODE_INPUT, GPIO_CNF_ANALOG, 0);
+	ADCInitMulti(ADC_pins, ADC_CHANNELS_COUNT, DMA_ENABLE);
 
-	ADC1->SMPR2 &= ~(0b110 << (ADC_SMPR2_SMP1_Pos));
-	ADC1->SMPR2 |= (0b110 << (ADC_SMPR2_SMP1_Pos));
+	DMAInit(DMA1_Channel1, (uint32_t)&ADC1->DR, (uint32_t)adc_fingers, ADC_CHANNELS_COUNT);
 
-	ADC1->SMPR2 &= ~(0b110 << (ADC_SMPR2_SMP4_Pos));
-	ADC1->SMPR2 |= (0b110 << (ADC_SMPR2_SMP4_Pos));
 
-	ADC1->SMPR2 &= ~(0b110 << (ADC_SMPR2_SMP5_Pos));
-	ADC1->SMPR2 |= (0b110 << (ADC_SMPR2_SMP5_Pos));
+	pinMode(mode_btn, GPIO_MODE_INPUT, GPIO_CNF_INPUT_PU_PD, 1);
 
-	ADC1->SMPR2 &= ~(0b110 << (ADC_SMPR2_SMP6_Pos));
-	ADC1->SMPR2 |= (0b110 << (ADC_SMPR2_SMP6_Pos));
+	softUartInit(SURx, SUTx, 9600);
+	usartInit(USART1, 9600);
 
-	ADC1->SQR1 &= ~(ADC_SQR1_L_Msk);
-	ADC1->SQR1 |= ((5-1) << ADC_SQR1_L_Pos);
+	sysTickInit();
 
-	//Настройка порядка каналов (SQR3)
-	// Используем регистр SQR3 (для SQ1 - SQ6).
-	ADC1->SQR3 = 0;
-	ADC1->SQR3 |= (0 << ADC_SQR3_SQ1_Pos);
-	ADC1->SQR3 |= (1 << ADC_SQR3_SQ2_Pos);
-	ADC1->SQR3 |= (4 << ADC_SQR3_SQ3_Pos);
-	ADC1->SQR3 |= (5 << ADC_SQR3_SQ4_Pos);
-	ADC1->SQR3 |= (6 << ADC_SQR3_SQ5_Pos);
+	I2C_Init(I2C1, SDA, SCL);
+	I2C_WriteReg(I2C1, MPU_ADDR, REG_PWR_MGMT_1, SET_MPU_PWR_MGMT_1_WAKE);
+	sysTickDelay(50);
+	I2C_WriteReg(I2C1, MPU_ADDR, 0x6A, 0x00);
+	sysTickDelay(50);
+//	I2C_WriteReg(I2C1, MPU_ADDR, REG_INT_PIN_CFG, SET_MPU_BYPASS_EN_BIT);
+//	I2C_WriteReg(I2C1, MAG_ADDR, REG_MAG_CNTL1, SET_MAG_CONTINUOUS_100HZ_16BIT);
 
-	// Шаг 4: Настройка режимов и включение ADC
-	ADC1->CR1 |= ADC_CR1_SCAN;
-	ADC1->CR2 |= ADC_CR2_CONT;
-	ADC1->CR2 |= ADC_CR2_ADON;
 
-	ADC1->CR2 |= ADC_CR2_RSTCAL;
-	while(ADC1->CR2 & ADC_CR2_RSTCAL);
 
-	ADC1->CR2 |= ADC_CR2_CAL;
-	while(ADC1->CR2 & ADC_CR2_CAL);
-
-	ADC1->CR2 |= ADC_CR2_SWSTART;
-	NVIC_EnableIRQ(TIM2_IRQn);
-
+	//	uint32_t *braindead  = NULL;
+//	*braindead  = 0x1241FF;
+	RGBInit(RGB_R, RGB_G, RGB_B);
+	mpuInit();
 	while(1){
-
+		ButtonEvent_t event = checkButtonPress(mode_btn);
+		switch(event){
+			case BTN_SHORT_CLICK:{
+				current_mode = (current_mode + 1) % MODES_AMOUNT;
+				break;
+			}
+			case BTN_LONG_CLICK:{
+				enterCalibration();
+				break;
+			}
+			default:{
+				break;
+			}
+		}
+		switch(current_mode){
+			case KEYBOARD_MODE:{
+				keyboardActivity();
+				break;
+			}
+			case CAR_CONTROLLER_MODE:{
+				carControllerActivity();
+				break;
+			}
+			case COMPASS_MODE:{
+				//compassActivity();
+				break;
+			}
+			default:{
+				break;
+			}
+		}
 
 	}
 }
 
-void TIM2_IRQHandler(void){
-	if(TIM2->SR & TIM_SR_UIF){
-		TIM2->SR &= ~TIM_SR_UIF;
-		uint16_t adc_val = ADC1->DR;
-		char message[7] = "0000\r\n\0";
-		for(int i = 0; i < 4; i++){
-			message[3-i] = (adc_val % 10) + '0';
-			adc_val /= 10;
-		}
-		usartWriteLine(USART_1, message);
+
+void HardFault_Handler(void){
+	__disable_irq();
+	Color error_color = {155, 0, 155};
+	setColor(RGB_R, RGB_G, RGB_B, error_color);
+	while(1){
 	}
 }

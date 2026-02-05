@@ -1,0 +1,13 @@
+C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include/core_cm3.h:1511:22:__NVIC_EnableIRQ	2
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:30:6:softUartInit	1
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:49:13:softUartRxStartHandler	1
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:64:13:softUartRxTimHandler	5
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:96:20:txSetHigh	1
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:101:20:txSetLow	1
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:106:13:softUartTxTimHandler	8
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:133:13:softUartStartTx	2
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:144:6:softUartPutChar	3
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:159:6:softUartPutString	2
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:167:13:softUartTimDispatch	5
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:183:10:softUartAvailable	1
+D:/Path/Glove/app/firmware/modules/myhal/src/soft_uart.c:188:6:softUartReadByte	2

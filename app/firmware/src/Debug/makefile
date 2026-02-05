@@ -9,9 +9,9 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include myhal/src/subdir.mk
 -include Startup/subdir.mk
 -include Src/subdir.mk
--include Inc/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

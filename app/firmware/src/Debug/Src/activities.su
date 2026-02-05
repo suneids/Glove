@@ -1,0 +1,7 @@
+../Src/activities.c:11:6:keyboardActivity	40	static
+../Src/activities.c:28:6:carControllerActivity	88	static
+../Src/activities.c:103:9:getFingerMask	16	static
+../Src/activities.c:114:6:compassActivity	24	static
+../Src/activities.c:129:6:enterCalibration	72	static
+../Src/activities.c:158:6:updateCompassLed	48	static
+../Src/activities.c:188:6:mpuInit	32	static
