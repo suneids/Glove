@@ -1,0 +1,7 @@
+../Src/activities.c:11:6:keyboardActivity	3
+../Src/activities.c:28:6:carControllerActivity	11
+../Src/activities.c:103:9:getFingerMask	3
+../Src/activities.c:114:6:compassActivity	2
+../Src/activities.c:129:6:enterCalibration	6
+../Src/activities.c:158:6:updateCompassLed	5
+../Src/activities.c:188:6:mpuInit	2

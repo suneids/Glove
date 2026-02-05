@@ -9,9 +9,11 @@ D:/Path/Glove/app/firmware/modules/myhal/adc.c \
 D:/Path/Glove/app/firmware/modules/myhal/dma.c \
 D:/Path/Glove/app/firmware/modules/myhal/exti.c \
 D:/Path/Glove/app/firmware/modules/myhal/gpio.c \
+D:/Path/Glove/app/firmware/modules/myhal/i2c.c \
 D:/Path/Glove/app/firmware/modules/myhal/myhal.c \
 D:/Path/Glove/app/firmware/modules/myhal/pwm.c \
-D:/Path/Glove/app/firmware/modules/myhal/soft_usart.c \
+D:/Path/Glove/app/firmware/modules/myhal/soft_i2c.c \
+D:/Path/Glove/app/firmware/modules/myhal/soft_uart.c \
 D:/Path/Glove/app/firmware/modules/myhal/tim.c \
 D:/Path/Glove/app/firmware/modules/myhal/usart.c \
 D:/Path/Glove/app/firmware/modules/myhal/utilities.c 
@@ -21,9 +23,11 @@ OBJS += \
 ./myhal/dma.o \
 ./myhal/exti.o \
 ./myhal/gpio.o \
+./myhal/i2c.o \
 ./myhal/myhal.o \
 ./myhal/pwm.o \
-./myhal/soft_usart.o \
+./myhal/soft_i2c.o \
+./myhal/soft_uart.o \
 ./myhal/tim.o \
 ./myhal/usart.o \
 ./myhal/utilities.o 
@@ -33,9 +37,11 @@ C_DEPS += \
 ./myhal/dma.d \
 ./myhal/exti.d \
 ./myhal/gpio.d \
+./myhal/i2c.d \
 ./myhal/myhal.d \
 ./myhal/pwm.d \
-./myhal/soft_usart.d \
+./myhal/soft_i2c.d \
+./myhal/soft_uart.d \
 ./myhal/tim.d \
 ./myhal/usart.d \
 ./myhal/utilities.d 
@@ -50,11 +56,15 @@ myhal/exti.o: D:/Path/Glove/app/firmware/modules/myhal/exti.c myhal/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I"C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include" -I"C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include" -I"D:/Path/Glove/app/firmware/modules/myhal" -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Werror -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 myhal/gpio.o: D:/Path/Glove/app/firmware/modules/myhal/gpio.c myhal/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I"C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include" -I"C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include" -I"D:/Path/Glove/app/firmware/modules/myhal" -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Werror -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
+myhal/i2c.o: D:/Path/Glove/app/firmware/modules/myhal/i2c.c myhal/subdir.mk
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I"C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include" -I"C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include" -I"D:/Path/Glove/app/firmware/modules/myhal" -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Werror -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 myhal/myhal.o: D:/Path/Glove/app/firmware/modules/myhal/myhal.c myhal/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I"C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include" -I"C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include" -I"D:/Path/Glove/app/firmware/modules/myhal" -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Werror -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 myhal/pwm.o: D:/Path/Glove/app/firmware/modules/myhal/pwm.c myhal/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I"C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include" -I"C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include" -I"D:/Path/Glove/app/firmware/modules/myhal" -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Werror -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
-myhal/soft_usart.o: D:/Path/Glove/app/firmware/modules/myhal/soft_usart.c myhal/subdir.mk
+myhal/soft_i2c.o: D:/Path/Glove/app/firmware/modules/myhal/soft_i2c.c myhal/subdir.mk
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I"C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include" -I"C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include" -I"D:/Path/Glove/app/firmware/modules/myhal" -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Werror -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
+myhal/soft_uart.o: D:/Path/Glove/app/firmware/modules/myhal/soft_uart.c myhal/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I"C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include" -I"C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include" -I"D:/Path/Glove/app/firmware/modules/myhal" -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Werror -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 myhal/tim.o: D:/Path/Glove/app/firmware/modules/myhal/tim.c myhal/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I"C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include" -I"C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include" -I"D:/Path/Glove/app/firmware/modules/myhal" -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Werror -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
@@ -66,7 +76,7 @@ myhal/utilities.o: D:/Path/Glove/app/firmware/modules/myhal/utilities.c myhal/su
 clean: clean-myhal
 
 clean-myhal:
-	-$(RM) ./myhal/adc.cyclo ./myhal/adc.d ./myhal/adc.o ./myhal/adc.su ./myhal/dma.cyclo ./myhal/dma.d ./myhal/dma.o ./myhal/dma.su ./myhal/exti.cyclo ./myhal/exti.d ./myhal/exti.o ./myhal/exti.su ./myhal/gpio.cyclo ./myhal/gpio.d ./myhal/gpio.o ./myhal/gpio.su ./myhal/myhal.cyclo ./myhal/myhal.d ./myhal/myhal.o ./myhal/myhal.su ./myhal/pwm.cyclo ./myhal/pwm.d ./myhal/pwm.o ./myhal/pwm.su ./myhal/soft_usart.cyclo ./myhal/soft_usart.d ./myhal/soft_usart.o ./myhal/soft_usart.su ./myhal/tim.cyclo ./myhal/tim.d ./myhal/tim.o ./myhal/tim.su ./myhal/usart.cyclo ./myhal/usart.d ./myhal/usart.o ./myhal/usart.su ./myhal/utilities.cyclo ./myhal/utilities.d ./myhal/utilities.o ./myhal/utilities.su
+	-$(RM) ./myhal/adc.cyclo ./myhal/adc.d ./myhal/adc.o ./myhal/adc.su ./myhal/dma.cyclo ./myhal/dma.d ./myhal/dma.o ./myhal/dma.su ./myhal/exti.cyclo ./myhal/exti.d ./myhal/exti.o ./myhal/exti.su ./myhal/gpio.cyclo ./myhal/gpio.d ./myhal/gpio.o ./myhal/gpio.su ./myhal/i2c.cyclo ./myhal/i2c.d ./myhal/i2c.o ./myhal/i2c.su ./myhal/myhal.cyclo ./myhal/myhal.d ./myhal/myhal.o ./myhal/myhal.su ./myhal/pwm.cyclo ./myhal/pwm.d ./myhal/pwm.o ./myhal/pwm.su ./myhal/soft_i2c.cyclo ./myhal/soft_i2c.d ./myhal/soft_i2c.o ./myhal/soft_i2c.su ./myhal/soft_uart.cyclo ./myhal/soft_uart.d ./myhal/soft_uart.o ./myhal/soft_uart.su ./myhal/tim.cyclo ./myhal/tim.d ./myhal/tim.o ./myhal/tim.su ./myhal/usart.cyclo ./myhal/usart.d ./myhal/usart.o ./myhal/usart.su ./myhal/utilities.cyclo ./myhal/utilities.d ./myhal/utilities.o ./myhal/utilities.su
 
 .PHONY: clean-myhal
 

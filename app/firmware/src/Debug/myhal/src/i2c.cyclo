@@ -1,0 +1,8 @@
+D:/Path/Glove/app/firmware/modules/myhal/src/i2c.c:3:6:I2C_Init	6
+D:/Path/Glove/app/firmware/modules/myhal/src/i2c.c:29:6:I2C_Start	2
+D:/Path/Glove/app/firmware/modules/myhal/src/i2c.c:35:13:I2C_WriteByte	2
+D:/Path/Glove/app/firmware/modules/myhal/src/i2c.c:41:13:I2C_Send_Address_And_Reg	3
+D:/Path/Glove/app/firmware/modules/myhal/src/i2c.c:53:6:I2C_WriteReg	1
+D:/Path/Glove/app/firmware/modules/myhal/src/i2c.c:61:6:I2C_WriteByteArray	2
+D:/Path/Glove/app/firmware/modules/myhal/src/i2c.c:72:9:I2C_ReadReg	1
+D:/Path/Glove/app/firmware/modules/myhal/src/i2c.c:79:6:I2C_Read_Burst	7

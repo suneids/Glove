@@ -1,0 +1,4 @@
+../Src/rgb.c:11:6:RGBInit	1
+../Src/rgb.c:21:6:setColor	1
+../Src/rgb.c:28:7:getStateColor	4
+../Src/rgb.c:45:7:getRainbowColor	3

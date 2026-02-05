@@ -1,7 +1,7 @@
 Src/glove_pins.o: ../Src/glove_pins.c ../Src/glove_config.h \
- D:/Path/Glove/app/firmware/modules/myhal/myhal.h \
- D:/Path/Glove/app/firmware/modules/myhal/gpio.h \
- D:/Path/Glove/app/firmware/modules/myhal/mcu_config.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/myhal.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/gpio.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/mcu_config.h \
  C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include/stm32f1xx.h \
  C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include/stm32f103x6.h \
  C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include/core_cm3.h \
@@ -9,18 +9,22 @@ Src/glove_pins.o: ../Src/glove_pins.c ../Src/glove_config.h \
  C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include/cmsis_compiler.h \
  C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include/cmsis_gcc.h \
  C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include/system_stm32f1xx.h \
- D:/Path/Glove/app/firmware/modules/myhal/usart.h \
- D:/Path/Glove/app/firmware/modules/myhal/tim.h \
- D:/Path/Glove/app/firmware/modules/myhal/exti.h \
- D:/Path/Glove/app/firmware/modules/myhal/pwm.h \
- D:/Path/Glove/app/firmware/modules/myhal/utilities.h \
- D:/Path/Glove/app/firmware/modules/myhal/dma.h \
- D:/Path/Glove/app/firmware/modules/myhal/adc.h \
- D:/Path/Glove/app/firmware/modules/myhal/soft_usart.h
+ D:/Path/Glove/app/firmware/modules/myhal/inc/usart.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/tim.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/exti.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/pwm.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/utilities.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/dma.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/adc.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/i2c.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/soft_i2c.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/soft_uart.h ../Src/rgb.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/gpio.h \
+ D:/Path/Glove/app/firmware/modules/myhal/inc/pwm.h
 ../Src/glove_config.h:
-D:/Path/Glove/app/firmware/modules/myhal/myhal.h:
-D:/Path/Glove/app/firmware/modules/myhal/gpio.h:
-D:/Path/Glove/app/firmware/modules/myhal/mcu_config.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/myhal.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/gpio.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/mcu_config.h:
 C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include/stm32f1xx.h:
 C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include/stm32f103x6.h:
 C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include/core_cm3.h:
@@ -28,11 +32,16 @@ C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include/cmsis_ver
 C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include/cmsis_compiler.h:
 C:/Users/user/Documents/STM32/STM32CubeF1-master/Drivers/CMSIS/Include/cmsis_gcc.h:
 C:/Users/user/Documents/STM32/cmsis-device-f1-c8e9a4a4f16b6d2cb2a2083cbe5161025280fb22/Include/system_stm32f1xx.h:
-D:/Path/Glove/app/firmware/modules/myhal/usart.h:
-D:/Path/Glove/app/firmware/modules/myhal/tim.h:
-D:/Path/Glove/app/firmware/modules/myhal/exti.h:
-D:/Path/Glove/app/firmware/modules/myhal/pwm.h:
-D:/Path/Glove/app/firmware/modules/myhal/utilities.h:
-D:/Path/Glove/app/firmware/modules/myhal/dma.h:
-D:/Path/Glove/app/firmware/modules/myhal/adc.h:
-D:/Path/Glove/app/firmware/modules/myhal/soft_usart.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/usart.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/tim.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/exti.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/pwm.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/utilities.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/dma.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/adc.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/i2c.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/soft_i2c.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/soft_uart.h:
+../Src/rgb.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/gpio.h:
+D:/Path/Glove/app/firmware/modules/myhal/inc/pwm.h:

@@ -1,0 +1,2 @@
+D:/Path/Glove/app/firmware/modules/myhal/src/adc.c:2:9:getChannelNumber	16	static
+D:/Path/Glove/app/firmware/modules/myhal/src/adc.c:9:6:ADCInitMulti	32	static

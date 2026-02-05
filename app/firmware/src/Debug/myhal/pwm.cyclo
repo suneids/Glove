@@ -1,3 +1,0 @@
-D:/Path/Glove/app/firmware/modules/myhal/pwm.c:32:6:pwmInit	4
-D:/Path/Glove/app/firmware/modules/myhal/pwm.c:61:6:pwmWrite	4
-D:/Path/Glove/app/firmware/modules/myhal/pwm.c:71:16:getTIMChannel	4
