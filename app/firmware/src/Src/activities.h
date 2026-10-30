@@ -9,6 +9,4 @@ void compassActivity();
 void enterCalibration(void);
 uint8_t getFingerMask(void);
 void updateCompassLed();
-void mpuInit();
-
 #endif

@@ -44,9 +44,13 @@ extern const uint8_t REG_PWR_MGMT_1;
 extern const uint8_t REG_WHO_AM_I;
 extern const uint8_t REG_ACCEL_XOUT_H;
 extern const uint8_t REG_INT_PIN_CFG;
+
+//QMC5883 Registers
+extern const uint8_t REG_MAG_XOUT_L;
+extern const uint8_t REG_MAG_XOUT_H;
+extern const uint8_t REG_MAG_STATUS;
 extern const uint8_t REG_MAG_CNTL1;
-extern const uint8_t REG_MAG_HXL;
-extern const uint8_t REG_MAG_ST2;
+extern const uint8_t REG_MAG_SET_RST;
 extern const uint8_t REG_MAG_WHO_AM_I;
 
 //MPU9250 Variables

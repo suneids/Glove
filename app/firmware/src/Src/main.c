@@ -28,16 +28,22 @@ int main(void)
 	sysTickDelay(50);
 	I2C_WriteReg(I2C1, MPU_ADDR, 0x6A, 0x00);
 	sysTickDelay(50);
-//	I2C_WriteReg(I2C1, MPU_ADDR, REG_INT_PIN_CFG, SET_MPU_BYPASS_EN_BIT);
-//	I2C_WriteReg(I2C1, MAG_ADDR, REG_MAG_CNTL1, SET_MAG_CONTINUOUS_100HZ_16BIT);
 
+	//MAG ENABLE
+	for(uint8_t i = 9; i < 20; i++){
+		I2C_WriteReg(I2C1, MAG_ADDR, i, 0x01);
+		for(volatile int d = 0; d < 5000; d++);
+	}
+
+	uint8_t raw[20];
 
 
 	//	uint32_t *braindead  = NULL;
-//	*braindead  = 0x1241FF;
+	//	*braindead  = 0x1241FF;
 	RGBInit(RGB_R, RGB_G, RGB_B);
-	mpuInit();
 	while(1){
+		I2C_Read_Burst(I2C1, MAG_ADDR, 0x00, raw, 20);
+		raw[0] = raw[0];
 		ButtonEvent_t event = checkButtonPress(mode_btn);
 		switch(event){
 			case BTN_SHORT_CLICK:{
@@ -62,7 +68,7 @@ int main(void)
 				break;
 			}
 			case COMPASS_MODE:{
-				//compassActivity();
+				compassActivity();
 				break;
 			}
 			default:{

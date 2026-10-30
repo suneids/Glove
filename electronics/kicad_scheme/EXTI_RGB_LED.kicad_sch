@@ -1,0 +1,1992 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "f7a7f38c-cfc5-48d8-90af-39c12886239c")
+	(paper "A4")
+	(lib_symbols
+		(symbol "Glove_Altium-altium-import:GND_POWER_GROUND"
+			(power global)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "GND"
+				(at 0 -6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Символ питания создаёт глобальную метку с именем 'GND'"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "power-flag"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "GND_POWER_GROUND_0_0"
+				(polyline
+					(pts
+						(xy -2.54 -2.54) (xy 2.54 -2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 -3.302) (xy 1.778 -3.302)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.016 -4.064) (xy 1.016 -4.064)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.254 -4.826) (xy 0.254 -4.826)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin power_in line
+					(at 0 0 0)
+					(length 0)
+					(hide yes)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "STM32F103C6T6:RGB_LED_0_EXTI_RGB_LED_STM32F103C6T6.SchLib"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "RGB_LED_0_EXTI_RGB_LED_STM32F103C6T6.SchLib_1_0"
+				(polyline
+					(pts
+						(xy -17.78 -15.24) (xy -17.78 -17.78)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -17.78 -20.32)
+					(radius 5)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -17.78 -22.86) (xy -17.78 -25.4)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -17.78 -25.4) (xy -17.78 -33.274) (xy -2.54 -33.274) (xy -2.54 -25.4)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -15.24 -17.78) (xy -20.32 -17.78) (xy -17.78 -22.86) (xy -15.24 -17.78)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -15.24 -22.86) (xy -20.32 -22.86)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -10.16 -22.86) (xy -5.08 -27.94)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -7.62 -30.48) (xy -12.7 -25.4)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -15.24) (xy -2.54 -17.78)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -2.54 -20.32)
+					(radius 5)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -22.86) (xy -2.54 -25.4)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -17.78) (xy -5.08 -17.78) (xy -2.54 -22.86) (xy 0 -17.78)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -22.86) (xy -5.08 -22.86)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 -22.86) (xy 10.16 -27.94)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -30.48) (xy 2.54 -25.4)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 -15.24) (xy 12.7 -17.78)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 12.7 -20.32)
+					(radius 5)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 -22.86) (xy 12.7 -25.4)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 -25.146) (xy 12.7 -33.274) (xy -2.54 -33.274)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 15.24 -17.78) (xy 10.16 -17.78) (xy 12.7 -22.86) (xy 15.24 -17.78)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 15.24 -22.86) (xy 10.16 -22.86)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 20.32 -22.86) (xy 25.4 -27.94)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 22.86 -30.48) (xy 17.78 -25.4)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(text "B"
+					(at -14.224 -14.986 900)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify right bottom)
+					)
+				)
+				(text "G"
+					(at 1.016 -14.986 900)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify right bottom)
+					)
+				)
+				(text "R"
+					(at 16.51 -14.986 900)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify right bottom)
+					)
+				)
+				(pin passive line
+					(at 12.7 -12.7 270)
+					(length 2.54)
+					(name "0"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "0"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -2.54 -12.7 270)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -17.78 -12.7 270)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -2.54 -35.814 90)
+					(length 2.54)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "STM32F103C6T6:RGB_LED_0_mirrored_EXT_SENSOR_4pin_STM32F103C6T6.SchLib"
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*EXT_SENSOR_4pin*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "RGB_LED_0_mirrored_EXT_SENSOR_4pin_STM32F103C6T6.SchLib_1_0"
+				(pin passive line
+					(at 7.62 0 270)
+					(length 2.54)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 270)
+					(length 2.54)
+					(name "IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 0 270)
+					(length 2.54)
+					(name "IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 0 270)
+					(length 2.54)
+					(name "IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "SamacSys:RGB_LED_2_0805R_SamacSys.SchLib"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*CAPC2012X145N*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "RGB_LED_2_0805R_SamacSys.SchLib_1_0"
+				(rectangle
+					(start 1.5 -5)
+					(end 5.5 -15)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 0 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 3.5 -2.5 270)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.5 -17.5 90)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(rectangle
+		(start 143.5 37.5072)
+		(end 93 111.5072)
+		(stroke
+			(width 0.508)
+			(type solid)
+			(color 0 0 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "d81b1844-ecee-447b-a30d-9ba020cbe0ba")
+	)
+	(junction
+		(at 86.5 93.0472)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "69cf28d2-65a2-4dcf-908a-50efd718d61d")
+	)
+	(junction
+		(at 86.5 90.5072)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d07db411-3943-4644-a78d-638750aca609")
+	)
+	(junction
+		(at 86.5 87.9672)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "df40a757-4d88-4a5e-bcad-3b219a1355be")
+	)
+	(junction
+		(at 86.5 85.4272)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fb2d7dbf-ba22-4954-9897-6bf70f56c95c")
+	)
+	(wire
+		(pts
+			(xy 105 90.5072) (xy 105 90.4872)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1272ad8c-77cd-4d69-82de-5871cbc31198")
+	)
+	(wire
+		(pts
+			(xy 39.5 98.0072) (xy 60 98.0072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "16a9ee50-e15f-494a-95cc-43230c525c68")
+	)
+	(wire
+		(pts
+			(xy 105 60.0072) (xy 95 60.0072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "23842343-a1f8-4c5d-a029-18a8f434a549")
+	)
+	(wire
+		(pts
+			(xy 86.5 88.0072) (xy 100 88.0072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27868bc9-92ba-448a-b8d9-f4acd12d2183")
+	)
+	(wire
+		(pts
+			(xy 130.5 75.2472) (xy 130.5 101.0072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3c982b4d-8ffb-47b9-9fb3-5894fbf04a13")
+	)
+	(wire
+		(pts
+			(xy 128.114 75.2472) (xy 130.5 75.2472)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41bdb1e3-0d66-4a66-a9ab-4ed63b5c16ec")
+	)
+	(wire
+		(pts
+			(xy 95 60.0072) (xy 95 85.5072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c5720eb-6caf-4e38-b825-7c81a457188c")
+	)
+	(wire
+		(pts
+			(xy 86.5 79.5072) (xy 80 79.5072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4e42a033-4ed8-4820-a7d1-67574e2aee2d")
+	)
+	(wire
+		(pts
+			(xy 86.5 90.5072) (xy 105 90.5072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4fcbc347-9863-42ee-b77c-9e450080e148")
+	)
+	(wire
+		(pts
+			(xy 130.5 101.0072) (xy 100 101.0072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "592fd812-6872-4932-a50e-38c810397d48")
+	)
+	(wire
+		(pts
+			(xy 75 91.5072) (xy 75 98.0072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a37e342-3f41-495c-9cc1-26d1dc462e1e")
+	)
+	(wire
+		(pts
+			(xy 100 101.0072) (xy 100 93.0072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "851ebbeb-b0b9-449a-95d5-63a773720084")
+	)
+	(wire
+		(pts
+			(xy 86.5 93.0072) (xy 86.5 93.0472)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "98483870-3501-48c4-8e09-6d5233e6a2e4")
+	)
+	(wire
+		(pts
+			(xy 65 79.5072) (xy 40 79.5072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9e98f00d-f392-47f4-a737-2ead839bce96")
+	)
+	(wire
+		(pts
+			(xy 86.5 90.5072) (xy 86.5 91.5072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a476d52e-a2f9-40ad-9df2-60d4fb7d31be")
+	)
+	(wire
+		(pts
+			(xy 86.5 87.9672) (xy 86.5 88.0072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "afb2ddf2-94e3-4beb-907d-2241248be256")
+	)
+	(wire
+		(pts
+			(xy 100 93.0072) (xy 86.5 93.0072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "afffff76-73da-4ef3-a1ae-13016fa49b2e")
+	)
+	(wire
+		(pts
+			(xy 59.5 87.0072) (xy 86.5 87.0072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cab6741f-1660-4ffd-8b39-56434ec96d9e")
+	)
+	(wire
+		(pts
+			(xy 40.5 87.0072) (xy 44.5 87.0072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d48c6120-634e-41d2-afa8-adadefc4cc66")
+	)
+	(wire
+		(pts
+			(xy 86.5 85.4272) (xy 86.5 79.5072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d711f3c8-6cab-46f6-9918-67210de47039")
+	)
+	(wire
+		(pts
+			(xy 100 75.2472) (xy 105 75.2472)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d885fec9-5dcb-4d18-b456-b3127a947ddd")
+	)
+	(wire
+		(pts
+			(xy 86.5 87.0072) (xy 86.5 87.9672)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "de76e769-a543-4b30-8745-1ab33b42b932")
+	)
+	(wire
+		(pts
+			(xy 100 88.0072) (xy 100 75.2472)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ef97089d-4031-4249-9e9e-b516773e10a2")
+	)
+	(wire
+		(pts
+			(xy 95 85.5072) (xy 86.5 85.5072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f61b91e4-619d-498a-91ac-dd313479a3ed")
+	)
+	(wire
+		(pts
+			(xy 86.5 91.5072) (xy 75 91.5072)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fd28f08e-3c21-48ee-816b-8f9d59eb49e5")
+	)
+	(wire
+		(pts
+			(xy 86.5 85.5072) (xy 86.5 85.4272)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe5ba5e9-fb92-4465-b504-b7c8573bb4ca")
+	)
+	(hierarchical_label "PWM_R"
+		(shape input)
+		(at 40 79.5072 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "37d295a9-6e25-44ea-a770-528ce3058af7")
+	)
+	(hierarchical_label "PWM_B"
+		(shape input)
+		(at 39.5 98.0072 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7e6bd4ca-aa11-4dc7-9552-fc0e06f7455a")
+	)
+	(hierarchical_label "PWM_G"
+		(shape input)
+		(at 40.5 87.0072 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e8b57fa3-52f8-421a-9c76-1cbe182a7fbe")
+	)
+	(symbol
+		(lib_id "STM32F103C6T6:RGB_LED_0_EXTI_RGB_LED_STM32F103C6T6.SchLib")
+		(at 92.3 72.7072 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0b92a9f9-e0e4-4f68-ad9f-dcac4a4c63c3")
+		(property "Reference" "HL1"
+			(at 128 44.0072 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right bottom)
+			)
+		)
+		(property "Value" "EXTI_RGB_LED"
+			(at 107.286 98.0272 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right bottom)
+			)
+		)
+		(property "Footprint" ""
+			(at 92.3 72.7072 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 92.3 72.7072 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 92.3 72.7072 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "0"
+			(uuid "011e88e3-54e7-42f4-a1f7-43d01254892b")
+		)
+		(pin "1"
+			(uuid "0307d9b5-11e0-4ac8-9d3c-f743213492f6")
+		)
+		(pin "2"
+			(uuid "09080b13-3e90-49b2-9979-1b9f89de7262")
+		)
+		(pin "4"
+			(uuid "ebb38ea4-deac-4699-8b01-6f849268c966")
+		)
+		(instances
+			(project "Glove_Altium"
+				(path "/3fcf173a-a2c8-44bc-93ce-b0a4d7315934/92dabccd-c539-4f2d-a15e-7c4cdfd4b045"
+					(reference "HL1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "STM32F103C6T6:RGB_LED_0_mirrored_EXT_SENSOR_4pin_STM32F103C6T6.SchLib")
+		(at 86.5 93.0472 270)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "29c18c21-085b-4adc-9478-aeb59116d885")
+		(property "Reference" "XP1"
+			(at 85.5 82.5072 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" ""
+			(at 85.23 93.8092 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "EXT_SENSOR_4pin"
+			(at 86.5 93.0472 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.5 93.0472 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 86.5 93.0472 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9129427b-2e2e-4554-a16f-6d742d411931")
+		)
+		(pin "2"
+			(uuid "bcbc5b39-e948-4666-b63c-19054252872f")
+		)
+		(pin "3"
+			(uuid "c6807fd9-fc38-4590-b25d-261fe854cb43")
+		)
+		(pin "4"
+			(uuid "ecafa78b-9933-464a-93f2-dbc0ff1dd3d7")
+		)
+		(instances
+			(project "Glove_Altium"
+				(path "/3fcf173a-a2c8-44bc-93ce-b0a4d7315934/92dabccd-c539-4f2d-a15e-7c4cdfd4b045"
+					(reference "XP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SamacSys:RGB_LED_2_0805R_SamacSys.SchLib")
+		(at 62 83.5072 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a72a8941-a487-4420-84b5-3a99b3eb125d")
+		(property "Reference" "R2"
+			(at 50.5 83.0072 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "100"
+			(at 50 85.0072 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "C__Users_user_Documents_AltiumLL_SamacSys.PcbLib:CAPC2012X145N"
+			(at 62 83.5072 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 62 83.5072 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 62 83.5072 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DATASHEET LINK" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/6a45835c9b7400e9b49c55c38a8ff4a2.pdf"
+			(at 43.992 85.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "HEIGHT" "1.45mm"
+			(at 43.992 85.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MANUFACTURER_NAME" "SAMSUNG"
+			(at 43.992 85.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MANUFACTURER_PART_NUMBER" "CL21A106KAYNNNE"
+			(at 43.992 85.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MOUSER PART NUMBER" "187-CL21A106KAYNNNE"
+			(at 43.992 85.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MOUSER PRICE/STOCK" "https://www.mouser.co.uk/ProductDetail/Samsung-Electro-Mechanics/CL21A106KAYNNNE?qs=yOVawPpwOwmTXAd4dJtNjA%3D%3D"
+			(at 43.992 85.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "ARROW PART NUMBER" "CL21A106KAYNNNE"
+			(at 43.992 85.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "ARROW PRICE/STOCK" "https://www.arrow.com/en/products/cl21a106kaynnne/samsung-electro-mechanics?utm_currency=USD&region=nac"
+			(at 43.992 85.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(pin "2"
+			(uuid "f913ac84-1f57-45b6-811f-982c7a1ff45e")
+		)
+		(pin "1"
+			(uuid "4251be05-be9e-4d39-b554-2f4775f6c76f")
+		)
+		(instances
+			(project "Glove_Altium"
+				(path "/3fcf173a-a2c8-44bc-93ce-b0a4d7315934/92dabccd-c539-4f2d-a15e-7c4cdfd4b045"
+					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Glove_Altium-altium-import:GND_POWER_GROUND")
+		(at 86.5 93.0472 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "aea2fafd-117b-4a7f-acaf-4ff6f16937d0")
+		(property "Reference" "#PWR?"
+			(at 86.5 93.0472 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 86.5 99.3972 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 86.5 93.0472 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.5 93.0472 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 86.5 93.0472 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "6f41c5e9-bfd1-474b-a651-7b8f1745fc73")
+		)
+		(instances
+			(project "Glove_Altium"
+				(path "/3fcf173a-a2c8-44bc-93ce-b0a4d7315934/92dabccd-c539-4f2d-a15e-7c4cdfd4b045"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SamacSys:RGB_LED_2_0805R_SamacSys.SchLib")
+		(at 77.5 94.5072 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "bf0c9b7b-2740-4ea1-b3e7-beb244e2d273")
+		(property "Reference" "R3"
+			(at 66 94.0072 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "100"
+			(at 65.5 96.0072 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "C__Users_user_Documents_AltiumLL_SamacSys.PcbLib:CAPC2012X145N"
+			(at 77.5 94.5072 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 77.5 94.5072 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 77.5 94.5072 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DATASHEET LINK" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/6a45835c9b7400e9b49c55c38a8ff4a2.pdf"
+			(at 59.492 96.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "HEIGHT" "1.45mm"
+			(at 59.492 96.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MANUFACTURER_NAME" "SAMSUNG"
+			(at 59.492 96.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MANUFACTURER_PART_NUMBER" "CL21A106KAYNNNE"
+			(at 59.492 96.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MOUSER PART NUMBER" "187-CL21A106KAYNNNE"
+			(at 59.492 96.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MOUSER PRICE/STOCK" "https://www.mouser.co.uk/ProductDetail/Samsung-Electro-Mechanics/CL21A106KAYNNNE?qs=yOVawPpwOwmTXAd4dJtNjA%3D%3D"
+			(at 59.492 96.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "ARROW PART NUMBER" "CL21A106KAYNNNE"
+			(at 59.492 96.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "ARROW PRICE/STOCK" "https://www.arrow.com/en/products/cl21a106kaynnne/samsung-electro-mechanics?utm_currency=USD&region=nac"
+			(at 59.492 96.0072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(pin "2"
+			(uuid "7c9f73dc-0a8d-464d-8710-6675e9baa209")
+		)
+		(pin "1"
+			(uuid "2cd400fb-8ec0-468e-bc74-1dbeea6b4ef2")
+		)
+		(instances
+			(project "Glove_Altium"
+				(path "/3fcf173a-a2c8-44bc-93ce-b0a4d7315934/92dabccd-c539-4f2d-a15e-7c4cdfd4b045"
+					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SamacSys:RGB_LED_2_0805R_SamacSys.SchLib")
+		(at 82.5 76.0072 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fc60d5d1-8986-471c-ad14-9b99d4d0091e")
+		(property "Reference" "R1"
+			(at 69 75.5072 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "220"
+			(at 69 77.5072 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "C__Users_user_Documents_AltiumLL_SamacSys.PcbLib:CAPC2012X145N"
+			(at 82.5 76.0072 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 82.5 76.0072 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 82.5 76.0072 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DATASHEET LINK" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/6a45835c9b7400e9b49c55c38a8ff4a2.pdf"
+			(at 64.492 77.5072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "HEIGHT" "1.45mm"
+			(at 64.492 77.5072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MANUFACTURER_NAME" "SAMSUNG"
+			(at 64.492 77.5072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MANUFACTURER_PART_NUMBER" "CL21A106KAYNNNE"
+			(at 64.492 77.5072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MOUSER PART NUMBER" "187-CL21A106KAYNNNE"
+			(at 64.492 77.5072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MOUSER PRICE/STOCK" "https://www.mouser.co.uk/ProductDetail/Samsung-Electro-Mechanics/CL21A106KAYNNNE?qs=yOVawPpwOwmTXAd4dJtNjA%3D%3D"
+			(at 64.492 77.5072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "ARROW PART NUMBER" "CL21A106KAYNNNE"
+			(at 64.492 77.5072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "ARROW PRICE/STOCK" "https://www.arrow.com/en/products/cl21a106kaynnne/samsung-electro-mechanics?utm_currency=USD&region=nac"
+			(at 64.492 77.5072 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(pin "1"
+			(uuid "b817ae02-b0ac-4548-ad0c-efc31a95c4e4")
+		)
+		(pin "2"
+			(uuid "fe08a9ed-6e3a-467c-bfed-01d7353e7fad")
+		)
+		(instances
+			(project "Glove_Altium"
+				(path "/3fcf173a-a2c8-44bc-93ce-b0a4d7315934/92dabccd-c539-4f2d-a15e-7c4cdfd4b045"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+)
