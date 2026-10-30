@@ -5,16 +5,17 @@
   </tr>
 </table>
 
-# 🚗 RC Car MK2.5
+# 🧤 Glove MK2 — Gesture-Based HMI Controller
 
-A remotely controlled robotic car built around an **STM32F103** with two interchangeable control interfaces:
+A wearable human-machine interface based on **STM32F103**, five finger flex sensors and inertial sensing.
 
-- a Qt/Android application over Bluetooth;
-- the custom [Glove MK2](https://github.com/suneids/Glove) wearable controller over radio.
+The glove converts finger state and hand orientation into control data for external devices.
 
-The firmware is written in C using CMSIS and custom register-level STM32 drivers.
+Its main application is gesture control of the [RC Car MK2.5](https://github.com/suneids/Car), but the firmware also includes a keyboard-style finger-mask mode and a compass visualization mode.
 
-The platform combines embedded control, RF communication, custom electronics and software steering compensation in a single robotic system.
+<p align="center">
+  <img src="docs/specs/glove.jpg" width="70%" alt="Glove MK2">
+</p>
 
 ---
 
@@ -22,62 +23,216 @@ The platform combines embedded control, RF communication, custom electronics and
 
 ```mermaid
 flowchart LR
-    APP["Qt / Android App"]
-    GLOVE["Glove MK2"]
-
-    BT["HC-05\nBluetooth"]
-    RADIO["HC-12\n433 MHz"]
+    FLEX["5 × Flex Sensors"]
+    IMU["MPU6500\nAccelerometer + Gyroscope"]
+    MAG["QMC5883\nMagnetometer"]
 
     MCU["STM32F103"]
-    STEER["2 × Steering Servos"]
-    MOTOR["Drive Motor\nH-Bridge"]
 
-    APP --> BT
-    GLOVE --> RADIO
+    RGB["RGB Status LED"]
+    UART["USART / Radio"]
+    SOFT["Software UART"]
 
-    BT --> MCU
-    RADIO --> MCU
+    CAR["RC Car MK2.5"]
+    PC["External Interface"]
 
-    MCU --> STEER
-    MCU --> MOTOR
+    FLEX --> MCU
+    IMU --> MCU
+    MAG --> MCU
+
+    MCU --> RGB
+    MCU --> UART
+    MCU --> SOFT
+
+    UART --> CAR
+    SOFT --> PC
 ```
 
-The STM32 firmware can switch between the two control sources at runtime.
+---
+
+## 🖐️ Finger Sensing
+
+Five analog flex sensors are sampled simultaneously through the STM32 ADC subsystem.
+
+The acquisition chain is:
+
+```text
+5 × Flex Sensors
+      ↓
+ADC
+      ↓
+DMA1 Channel 1
+      ↓
+adc_fingers[5]
+```
+
+DMA continuously transfers ADC samples directly into memory, so the application does not need to poll every ADC channel manually.
+
+Each finger is converted into a binary state using an individually calibrated threshold.
+
+The resulting states are packed into a 5-bit mask:
+
+```text
+bit 0 → finger 1
+bit 1 → finger 2
+bit 2 → finger 3
+bit 3 → finger 4
+bit 4 → finger 5
+```
+
+This mask is used both for gesture input and for calculating vehicle speed in Car Controller Mode.
 
 ---
 
-## 🎮 Control Modes
+## 🧭 Hand Orientation
 
-### 📱 Mobile application
+Hand motion is measured with an **MPU6500 accelerometer/gyroscope**.
 
-The Android controller is written in **Qt/C++**.
+The firmware reads the sensor using a 14-byte I²C burst containing acceleration and angular-rate data.
 
-It implements:
+Pitch estimation uses a complementary filter:
 
-- Bluetooth Classic communication through RFCOMM;
-- custom on-screen joystick;
-- conversion of joystick coordinates into steering angle and signed speed;
-- periodic transmission of control packets.
+```text
+angle =
+    0.96 × (previous_angle + gyro_rate × dt)
+  + 0.04 × accelerometer_angle
+```
 
-Joystick displacement determines vehicle speed, while joystick direction determines steering angle.
+This combines:
 
-Moving the joystick below the center generates a negative speed command for reverse motion.
+- short-term gyroscope responsiveness;
+- long-term accelerometer stability.
 
----
-
-### 🧤 Glove control
-
-The second control mode accepts commands from the [Glove MK2](https://github.com/suneids/Glove).
-
-The glove converts hand orientation and finger state into the same steering/speed packet format used by the mobile application.
-
-This allows the car firmware to use a common motion-control layer regardless of the physical controller.
+Roll is currently derived directly from the accelerometer and is used as the steering input for the RC car.
 
 ---
 
-## 📡 Communication Protocol
+## 🎮 Operating Modes
 
-Both control interfaces use the same compact 4-byte packet:
+The glove firmware is organized around several independent activities.
+
+A short press of the mode button cycles between them.
+
+### 🚗 Car Controller Mode
+
+The glove directly controls the [RC Car MK2.5](https://github.com/suneids/Car).
+
+Control mapping:
+
+```text
+Hand roll
+    ↓
+Steering angle
+
+Number of bent fingers
+    ↓
+Vehicle speed
+
+Hand pitch
+    ↓
+Forward / reverse
+```
+
+Each bent finger contributes approximately **20%** to the requested speed.
+
+Five fingers therefore provide five discrete speed levels up to 100%.
+
+Tilting the hand beyond the configured pitch threshold reverses the sign of the speed command.
+
+---
+
+### ⌨️ Keyboard / Finger-Mask Mode
+
+In this mode the current five-finger state is packed into a bit mask and periodically transmitted through software UART.
+
+This provides a compact generic gesture representation that can be interpreted by another controller or PC-side application.
+
+Example:
+
+```text
+00000 → all fingers in one state
+00101 → fingers 1 and 3 active
+11111 → all five active
+```
+
+The firmware itself does not assign keyboard characters to individual gestures; it outputs the finger-state mask for higher-level interpretation.
+
+---
+
+### 🧭 Compass Mode
+
+The glove also includes a **QMC5883 magnetometer**.
+
+Compass Mode:
+
+- reads the magnetic field vector over I²C;
+- calculates heading;
+- maps heading to RGB color;
+- continuously updates the status LED.
+
+The color wheel represents orientation approximately as:
+
+```text
+North → Blue
+East  → Green
+South → Red
+West  → Purple
+```
+
+with smooth transitions between directions.
+
+---
+
+## 🔧 Interactive Calibration
+
+A long press of the mode button starts the complete calibration sequence.
+
+Calibration is performed directly on the device without recompiling firmware.
+
+### IMU calibration
+
+The firmware collects multiple gyroscope samples and calculates zero-rate offsets.
+
+Currently the calibration routine averages **200 samples**.
+
+---
+
+### Flex sensor calibration
+
+During calibration the firmware records the minimum and maximum ADC values observed for every finger.
+
+For each channel:
+
+```text
+threshold = (minimum + maximum) / 2
+```
+
+This compensates for:
+
+- different sensor resistance;
+- finger geometry;
+- mounting position;
+- mechanical differences between sensors.
+
+---
+
+### Magnetometer calibration
+
+The firmware records minimum and maximum magnetic-field values while the glove is rotated.
+
+From these measurements it calculates:
+
+- X offset;
+- Y offset;
+- axis scaling correction.
+
+This reduces hard-iron offset and axis-scale error before heading visualization.
+
+---
+
+## 📡 RC Car Protocol
+
+Car Controller Mode uses the same compact packet format understood by the RC Car firmware:
 
 ```text
 0xFE | Steering | Speed | XOR
@@ -85,169 +240,97 @@ Both control interfaces use the same compact 4-byte packet:
 
 | Byte | Field | Description |
 |---:|---|---|
-| 0 | Header | `0xFE` start byte |
-| 1 | Steering | Requested steering angle |
-| 2 | Speed | Signed velocity command |
+| 0 | Header | `0xFE` |
+| 1 | Steering | Hand-orientation-derived steering command |
+| 2 | Speed | Signed speed command |
 | 3 | Checksum | `Steering XOR Speed` |
 
-The firmware scans the incoming stream for the `0xFE` header and verifies the XOR checksum before executing the command.
-
-Invalid packets are discarded.
+This allows the glove to communicate directly with the vehicle without an additional translation layer.
 
 ---
 
-## 🧠 Firmware Architecture
+## 💡 RGB Feedback
 
-The main control loop performs four stages:
+A three-channel RGB LED provides immediate visual feedback.
 
-```text
-Receive packet
-      ↓
-Validate checksum
-      ↓
-Steering compensation
-      ↓
-PWM generation
-```
+It is driven through PWM and is used for:
 
-The STM32 receives commands either from:
+- operating-mode indication;
+- animated mode colors;
+- calibration feedback;
+- compass visualization;
+- fault indication.
 
-- hardware USART — mobile/Bluetooth mode;
-- software UART — glove/radio mode.
-
-A physical button switches the active control source.
+The firmware also includes a custom `HardFault_Handler()` that switches the RGB LED to a dedicated error color if the MCU enters a HardFault state.
 
 ---
 
-## 🛞 Software Ackermann Steering Compensation
+## 🔧 Firmware
 
-The front wheels are controlled by **two independent steering servos**.
+The firmware runs on **STM32F103** and is written in C using CMSIS and custom register-level drivers.
 
-Instead of sending exactly the same angle to both wheels, the firmware applies individual center offsets and an additional correction to the inside wheel during a turn.
+Used peripherals include:
 
-Conceptually:
+- ADC;
+- DMA;
+- I²C;
+- USART;
+- software UART;
+- PWM;
+- GPIO;
+- SysTick.
 
-```text
-Requested steering angle
-          ↓
-Left / right mechanical offsets
-          ↓
-Inside-wheel additional steering
-          ↓
-Independent servo angles
-```
-
-This produces a software approximation of **Ackermann steering**, where the inner front wheel turns through a larger angle than the outer wheel.
-
-The implementation is intentionally empirical rather than a full geometric Ackermann solver: correction values are calibrated for the actual steering mechanism.
-
----
-
-## ⚡ Motor and Steering Control
-
-The STM32 generates PWM signals for:
-
-- left steering servo;
-- right steering servo;
-- two H-bridge control inputs for the drive motor.
-
-Signed speed commands are converted into motor direction and PWM magnitude.
-
-```text
-speed > 0 → forward
-speed < 0 → reverse
-```
-
-Steering commands are normalized from the protocol angle range into the calibrated PWM range of each servo.
-
----
-
-## 🔧 Embedded Firmware
-
-The firmware runs on an **STM32F103C8T6 / Cortex-M3**.
-
-It uses a custom register-level driver library rather than STM32 HAL:
+The project uses the custom STM32 driver library as a Git submodule:
 
 [**STM32 Low-Level Drivers**](https://github.com/suneids/HAL_STM32F103C6T6)
 
-Used peripherals and modules include:
-
-- GPIO;
-- TIM / PWM;
-- USART;
-- software UART;
-- SysTick;
-- button/event handling.
-
-The driver library is included as a Git submodule.
-
 ---
 
-## 🔋 Electronics
+## 🔌 Hardware
 
-Main hardware:
-
-| Component | Role |
+| Component | Function |
 |---|---|
 | STM32F103 | Main controller |
-| HC-05 | Bluetooth control |
-| HC-12 | Radio link to Glove MK2 |
-| MP2315 | Buck converter |
-| 2 × servo | Independent front-wheel steering |
-| H-bridge | Drive motor control |
-
-The electronics were designed in **Altium Designer**.
-
-The repository contains the schematic, PCB project and generated schematic documentation.
+| 5 × flex sensors | Finger state detection |
+| MPU6500 | Accelerometer + gyroscope |
+| QMC5883 | Magnetic heading |
+| RGB LED | Status / mode / compass indication |
+| Radio / UART interface | External communication |
 
 ---
 
-## 📱 Qt / Android Application
+## 🧩 Electronics
 
-The mobile controller is implemented in Qt/C++.
+The repository contains the glove schematic together with separate interface sheets for:
 
-Its custom joystick calculates:
+- flex sensor inputs;
+- RGB LED / external circuitry.
 
-```text
-dx, dy
-  ↓
-atan2()
-  ↓
-Steering angle
-```
-
-while joystick displacement determines speed.
-
-The application then generates the same binary packet understood by the STM32:
-
-```text
-0xFE | angle | signed speed | XOR
-```
-
-Bluetooth communication uses Qt Bluetooth and an RFCOMM socket.
+Both Altium and KiCad project files are present in the repository.
 
 ---
 
 ## 📁 Repository Structure
 
 ```text
-Car/
+Glove/
 ├── app/
-│   ├── android_/
-│   │   └── Qt/C++ mobile controller
-│   │
 │   └── firmware/
 │       ├── STM32F103 firmware
 │       └── custom HAL submodule
 │
 ├── electronics/
-│   └── Car_Altium/
-│       ├── schematic
-│       ├── PCB
-│       └── documentation
+│   ├── Glove_Alrium/
+│   │   └── Altium schematics
+│   │
+│   └── kicad_scheme/
+│       └── KiCad schematics
+│
+├── docs/
+│   └── specs/
+│       └── glove.jpg
 │
 ├── 3d models/
-├── docs/
 ├── README.md
 └── README_RU.md
 ```
@@ -256,16 +339,20 @@ Car/
 
 ## ✅ Implemented
 
-- [x] STM32F103 bare-metal firmware
-- [x] Bluetooth control through HC-05
-- [x] Radio control from Glove MK2
-- [x] Runtime control-mode switching
-- [x] Custom binary protocol
-- [x] XOR packet validation
-- [x] Forward and reverse motor control
-- [x] Independent left/right steering servos
-- [x] Software Ackermann steering compensation
-- [x] Mechanical steering calibration
-- [x] Qt/Android joystick controller
-- [x] Custom PCB design in Altium
-- [x] MP2315-based power conversion
+- [x] STM32F103 firmware
+- [x] Five-channel flex sensing
+- [x] ADC acquisition with DMA
+- [x] Finger-state bit mask
+- [x] MPU6500 accelerometer / gyroscope interface
+- [x] Complementary-filter pitch estimation
+- [x] QMC5883 magnetometer interface
+- [x] Car Controller Mode
+- [x] Keyboard / finger-mask mode
+- [x] Compass Mode
+- [x] Interactive flex calibration
+- [x] Gyroscope offset calibration
+- [x] Magnetometer calibration
+- [x] RGB status indication
+- [x] Custom RC Car communication protocol
+- [x] HardFault visual indication
+- [x] Altium / KiCad schematic design
