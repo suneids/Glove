@@ -114,51 +114,110 @@ uint8_t getFingerMask(void){
 void compassActivity(){
 	static uint32_t last_send_time = 0;
 	if(millis() - last_send_time >= 50){
-		uint8_t raw[7] = {0};
+		uint8_t raw[6] = {0};
 
-		I2C_Read_Burst(I2C1, MAG_ADDR, REG_MAG_HXL, raw, 7);
+		I2C_Read_Burst(I2C1, MAG_ADDR, REG_MAG_XOUT_L, raw, 6);
 		mpu_mag.mx = (int16_t)(raw[1] << 8 | raw[0]);
 		mpu_mag.my = (int16_t)(raw[3] << 8 | raw[2]);
 		mpu_mag.mz = (int16_t)(raw[5] << 8 | raw[4]);
+		usartWriteLine(USART1, (const char*)raw, 6);
 		updateCompassLed();
 		last_send_time = millis();
 	}
 }
 
 
-void enterCalibration(void){
+static void calibrateMPU(){
+	gx_offset = 0;
+	gy_offset = 0;
+	uint8_t raw[14] = {0};
+	for(uint8_t i = 0; i < 200; i++){
+		I2C_Read_Burst(I2C1, MPU_ADDR, REG_ACCEL_XOUT_H, raw, 14);
+		gx_offset += (int16_t)(raw[8] << 8 | raw[9]);
+		gy_offset += (int16_t)(raw[10] << 8 | raw[11]);
+	}
+	gx_offset /= 200;
+	gy_offset /= 200;
+}
+
+
+static void calibrateFlex(){
 	ButtonEvent_t event = BTN_NO_EVENT;
-	uint16_t first_thresholds[ADC_CHANNELS_COUNT] = {0};
-	setColor(RGB_R, RGB_G, RGB_B, C_YELLOW);
+	uint16_t flex_max[ADC_CHANNELS_COUNT],
+			 flex_min[ADC_CHANNELS_COUNT],
+			 flex_current[ADC_CHANNELS_COUNT];
+	for(uint8_t i = 0; i< ADC_CHANNELS_COUNT; i++){
+		flex_min[i] = UINT16_MAX;
+		flex_max[i] = 0;
+	}
 	while(!event){
 		for(int i = 0; i < ADC_CHANNELS_COUNT; i++){
-			first_thresholds[i] = adc_fingers[i];
+			flex_current[i] = adc_fingers[i];
+			flex_max[i] = (flex_current[i] > flex_max[i])? flex_current[i] : flex_max[i];
+			flex_min[i] = (flex_current[i] < flex_min[i])? flex_current[i] : flex_min[i];
 		}
 		event = checkButtonPress(mode_btn);
 	}
-
-	sysTickDelay(500);
-	event = BTN_NO_EVENT;
-	uint16_t second_thresholds[ADC_CHANNELS_COUNT] = {0};
-	setColor(RGB_R, RGB_G, RGB_B, C_WHITE);
-	while(!event){
-		for(int i = 0; i < ADC_CHANNELS_COUNT; i++){
-			second_thresholds[i] = adc_fingers[i];
-		}
-		event = checkButtonPress(mode_btn);
-	}
-
-
-	//Сохраняем новыый порог
 	for(int i = 0; i < ADC_CHANNELS_COUNT; i++){
-		fingers_thresholds[i] = (first_thresholds[i] + second_thresholds[i]) / 2;
+		fingers_thresholds[i] = (flex_max[i] + flex_min[i]) / 2;
 	}
 }
 
+
+static void calibrateMag(){
+	ButtonEvent_t event = BTN_NO_EVENT;
+
+	int16_t mx_min=INT16_MAX, mx_max=INT16_MIN;
+	int16_t my_min=INT16_MAX, my_max=INT16_MIN;
+
+	setColor(RGB_R, RGB_G, RGB_B, C_YELLOW);
+
+	uint8_t raw[6];
+	while(!event){
+		I2C_Read_Burst(I2C1, MAG_ADDR, REG_MAG_XOUT_L, raw, 6);
+		int16_t mx = (raw[1]<<8) | raw[0];
+		int16_t my = (raw[3]<<8) | raw[2];
+
+		if(mx < mx_min) mx_min = mx;
+		if(mx > mx_max) mx_max = mx;
+		if(my < my_min) my_min = my;
+		if(my > my_max) my_max = my;
+
+		event = checkButtonPress(mode_btn);
+	}
+
+	// Вычисляем центр и масштаб
+	int16_t mx_center = (mx_min + mx_max)/2;
+	int16_t my_center = (my_min + my_max)/2;
+	float ky = (float)(mx_max - mx_min) / (float)(my_max - my_min);
+
+	// Сохраняем в глобальные переменные
+	mag_offset_x = mx_center;
+	mag_offset_y = my_center;
+	mag_scale_y = ky;
+}
+
+
+void enterCalibration(void){
+	setColor(RGB_R, RGB_G, RGB_B, C_YELLOW);
+	calibrateMPU();
+	setColor(RGB_R, RGB_G, RGB_B, C_GREEN);
+	calibrateFlex();
+	setColor(RGB_R, RGB_G, RGB_B, C_BLUE);
+	calibrateMag();
+}
+
+
+//Север (0°) = синий
+//Восток (90°) = зелёный
+//Юг (180°) = красный
+//Запад (270°) = пурпур/фиолет
+//Плавные переходы внутри четвертей
 void updateCompassLed(){
 	float heading = atan2f((float)mpu_mag.my, (float)mpu_mag.mx);
 	float angle = heading * 180.0f / 3.1415f;
 	if(angle < 0) angle+=360.0f;
+	angle -= 90;
 	Color new_color;
 	uint8_t rise = (uint8_t)(((int)angle % 90) * 255 / 90);
 	uint8_t fade = 255 - rise;
@@ -185,15 +244,3 @@ void updateCompassLed(){
 	setColor(RGB_R, RGB_G, RGB_B, new_color);
 }
 
-void mpuInit(){
-	gx_offset = 0;
-	gy_offset = 0;
-	uint8_t raw[14] = {0};
-	for(uint8_t i = 0; i < 200; i++){
-		I2C_Read_Burst(I2C1, MPU_ADDR, REG_ACCEL_XOUT_H, raw, 14);
-		gx_offset += (int16_t)(raw[8] << 8 | raw[9]);
-		gy_offset += (int16_t)(raw[10] << 8 | raw[11]);
-	}
-	gx_offset /= 200;
-	gy_offset /= 200;
-}
